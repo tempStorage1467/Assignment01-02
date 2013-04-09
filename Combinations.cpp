@@ -3,15 +3,25 @@
  * ----------------------
  * Name: Eric Beach
  * Section: [TODO: enter section leader here]
+ * Copyright 2013 <Eric Beach>
  * This file is the starter project for the Combinations problem.
  * [TODO: rewrite the documentation]
+ *
+ * This file lightly linted using
+ * http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py
  */
 
 #include <iostream>
 #include "console.h"
 using namespace std;
 
+/*
+ * Calculate the combination of c(n, k).
+ * See https://en.wikipedia.org/wiki/Combination
+ */
 int c(int n, int k) {
+    // TODO: make more efficient by taking shortcuts such as the (n, 1) value
+    // in a row is n
     if (n == 0 || k == n || k == 0) {
         return 1;
     } else {
@@ -19,6 +29,10 @@ int c(int n, int k) {
     }
 }
 
+/*
+ * Helper function for unit tests. Determine whether two integers are
+ *   of the same value.
+ */
 bool assertEquals(int expected, int received) {
     if (expected == received) {
         return true;
@@ -29,6 +43,9 @@ bool assertEquals(int expected, int received) {
     }
 }
 
+/*
+ * Perform unit tests on the combinations function.
+ */
 void testC() {
     assertEquals(1, c(0, 0));
     assertEquals(1, c(1, 0));
@@ -47,8 +64,14 @@ void testC() {
     assertEquals(1, c(7, 7));
 }
 
+/*
+ * Perform tests and show combination values.
+ */
 int main() {
+    // TODO: time different methods of computing the triangle and show the times
+    // TODO: try multi-threadded method
     testC();
-    cout << c(3, 1) << endl;
+    cout << "c(3, 1): " << c(3, 1) << endl;
+    cout << "c(10, 5): " << c(10, 5) << endl;
     return 0;
 }
