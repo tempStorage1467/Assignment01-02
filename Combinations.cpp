@@ -12,6 +12,7 @@
  */
 
 #include <iostream>
+#include <string>
 #include "console.h"
 using namespace std;
 
@@ -65,13 +66,38 @@ void testC() {
 }
 
 /*
+ * Create a string that pads the 
+ */
+string getInitialColumnSpacing(int currentRowNum, int maxNumRows) {
+    int numSpaces = (maxNumRows - currentRowNum)/2;
+    string space;
+    for (int i = 0; i < 2*numSpaces; i++) {
+        space += " ";
+    }
+    return space;
+}
+
+/*
+ * Print Pascale's Triangle to the console.
+ */
+void printPascalTriangle(const int numRows) {
+    string initialColSpacing;
+    for (int row = 0; row < numRows; row++) {
+        cout << getInitialColumnSpacing(row, numRows);
+        for (int col = 0; col < row + 1; col++) {
+            cout << c(row, col) << " ";
+        }
+        cout << endl;
+    }
+}
+
+/*
  * Perform tests and show combination values.
  */
 int main() {
     // TODO: time different methods of computing the triangle and show the times
     // TODO: try multi-threadded method
     testC();
-    cout << "c(3, 1): " << c(3, 1) << endl;
-    cout << "c(10, 5): " << c(10, 5) << endl;
+    printPascalTriangle(10);
     return 0;
 }
