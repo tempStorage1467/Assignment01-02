@@ -27,25 +27,27 @@ CachingCombinationsAlgorithm::CachingCombinationsAlgorithm() {
    */
   for (int row = 0; row < CombinationAlgorithm::NUM_ROWS_COMPUTED; row++) {
     for (int col = 0; col < row + 1; col ++) {
-        cachedValue[row][col] = -1;
+        cachedValue[row][col] = 0;
     }
   }
 }
 
 /*
  * Compute Pascale's Triangle value for a given number.
- * Partial credit to: http://stackoverflow.com/questions/15580291/
- *   "How to efficiently calculate a row in pascal's triangle?"
+ * Note: Due to the use of caching and static arrays, this method cannot
+ *  compute a value with n or k >= NUM_ROWS_COMPUTED. Array overrun errors
+ *  will occur and random values from memory will be in the "cache"
  */
-int CachingCombinationsAlgorithm::performCombinationComputation(int n, int k) {
+unsigned int CachingCombinationsAlgorithm::performCombinationComputation(
+                                                            int n, int k) {
     if (n == 0 || k == n || k == 0) {
         return 1;
     } else if (k == 1 || k == (n - 1)) {
         return n;
-    } else if (cachedValue[n][k] >= 0) {
+    } else if (cachedValue[n][k] != 0) {
         return cachedValue[n][k];
     } else {
-        int result = performCombinationComputation(n - 1, k - 1) +
+        unsigned int result = performCombinationComputation(n - 1, k - 1) +
         performCombinationComputation(n - 1, k);
         cachedValue[n][k] = result;
         return result;
@@ -70,11 +72,16 @@ double CachingCombinationsAlgorithm::getComputeTime(int numRows,
     }
 
     double endTime = clock();
-    return (endTime - beginTime);
+    return (endTime - beginTime) / CLOCKS_PER_SEC;
 }
 
 /*
  * Run unit tests on the performCombinationComputation() method.
+ *
+ * Note: Due to the use of caching and static arrays by 
+ *  performCombinationComputation, no unit tests should be written to 
+ *  compute a value with n or k >= NUM_ROWS_COMPUTED. Array overrun errors
+ *  will occur and random values from memory will be in the "cache"
  */
 void CachingCombinationsAlgorithm::runTests() {
     // TODO: Find a way to pass into tester a reference to
@@ -96,7 +103,8 @@ void CachingCombinationsAlgorithm::runTests() {
     Tester::assertEquals(21, performCombinationComputation(7, 5));
     Tester::assertEquals(7, performCombinationComputation(7, 6));
     Tester::assertEquals(1, performCombinationComputation(7, 7));
-    // TODO: test for largest value permitted for an integer
-    // Tester::assertEquals(30045015, performCombinationComputation(30, 20));
-    // Tester::assertEquals(77558760, performCombinationComputation(29, 15));
+    Tester::assertEquals(252, performCombinationComputation(10, 5));
+    Tester::assertEquals(924, performCombinationComputation(12, 6));
+    Tester::assertEquals(1716, performCombinationComputation(13, 6));
+    Tester::assertEquals(3432, performCombinationComputation(14, 7));
 }

@@ -32,7 +32,7 @@ class BasicCombinationAlgorithm: public CombinationAlgorithm {
     void runTests();
  protected:
     // Calculate an individual combination value.
-    int performCombinationComputation(int n, int k);
+    unsigned int performCombinationComputation(int n, int k);
 };
 
 #endif  // BASICCOMBINATIONALGORITHM_H_

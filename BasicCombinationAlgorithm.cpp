@@ -23,7 +23,8 @@
  * This is the basic method of computing a combination recursively, done
  *    for the core of the CS106b assignment.
  */
-int BasicCombinationAlgorithm::performCombinationComputation(int n, int k) {
+unsigned int BasicCombinationAlgorithm::performCombinationComputation(
+                                                            int n, int k) {
     if (n == 0 || k == n || k == 0) {
         return 1;
     } else {
@@ -50,7 +51,7 @@ double BasicCombinationAlgorithm::getComputeTime(int numRows,
     }
 
     double endTime = clock();
-    return (endTime - beginTime);
+    return (endTime - beginTime) / CLOCKS_PER_SEC;
 }
 
 /*
@@ -75,4 +76,5 @@ void BasicCombinationAlgorithm::runTests() {
     Tester::assertEquals(1, performCombinationComputation(7, 7));
     Tester::assertEquals(30045015, performCombinationComputation(30, 20));
     Tester::assertEquals(77558760, performCombinationComputation(29, 15));
+    Tester::assertEquals(6435, performCombinationComputation(15, 7));
 }

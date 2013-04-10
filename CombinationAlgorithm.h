@@ -29,11 +29,11 @@ class CombinationAlgorithm {
     static const int NUM_TRIANGLE_ITERATIONS = 5000;
 
     // The number of rows to construct in Pascale's Triangle.
-    static const int NUM_ROWS_COMPUTED = 15;
+    static const int NUM_ROWS_COMPUTED = 17;
 
  protected:
     // Perform an individual combination calculation.
-    virtual int performCombinationComputation(int n, int k) = 0;
+    virtual unsigned int performCombinationComputation(int n, int k) = 0;
 
     // Clock how long it took to construct a Triangle repeatedly.
     virtual double getComputeTime(int numRows, int numIterations) = 0;

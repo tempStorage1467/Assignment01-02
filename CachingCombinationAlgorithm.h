@@ -36,10 +36,10 @@ class CachingCombinationsAlgorithm: public CombinationAlgorithm {
     void runTests();
  protected:
     // Perform an individual combination calculation.
-    int performCombinationComputation(int n, int k);
+    unsigned int performCombinationComputation(int n, int k);
 
     // Two dimentional array to store cached calculation results.
-    int cachedValue
+    unsigned int cachedValue
           [CombinationAlgorithm::NUM_ROWS_COMPUTED]
           [CombinationAlgorithm::NUM_ROWS_COMPUTED];
 };

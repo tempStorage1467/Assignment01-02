@@ -71,6 +71,8 @@ int main() {
     printPascalTriangle(10);
 
     cout << endl << endl << endl;
+    cout << "Computating many Pascale's Triangles with varying algorithms" <<
+    "... please wait" << endl;
 
     // Clock Basic Pascal's Triangle Algorithm
     BasicCombinationAlgorithm compute = BasicCombinationAlgorithm();
@@ -78,9 +80,10 @@ int main() {
     double result = compute.getComputeTime(
                             CombinationAlgorithm::NUM_ROWS_COMPUTED,
                             CombinationAlgorithm::NUM_TRIANGLE_ITERATIONS);
-    cout << "Basic Computation Algorithm calculated a 10 row triangle " <<
+    cout << "Basic Computation Algorithm calculated a " <<
+      CombinationAlgorithm::NUM_ROWS_COMPUTED << " row triangle " <<
       CombinationAlgorithm::NUM_TRIANGLE_ITERATIONS << " times in " <<
-      result << " microseconds" << endl;
+      result << " seconds" << endl;
 
     // Clock Pascal's Triangle Algorithm with caching
     CachingCombinationsAlgorithm computeCache = CachingCombinationsAlgorithm();
@@ -88,9 +91,10 @@ int main() {
     result = computeCache.getComputeTime(
                             CombinationAlgorithm::NUM_ROWS_COMPUTED,
                             CombinationAlgorithm::NUM_TRIANGLE_ITERATIONS);
-    cout << "Caching Computation Algorithm calculated a 10 row triangle " <<
-    CombinationAlgorithm::NUM_TRIANGLE_ITERATIONS << " times in " <<
-    result << " microseconds" << endl;
+    cout << "Caching Computation Algorithm calculated a " <<
+      CombinationAlgorithm::NUM_ROWS_COMPUTED << " row triangle " <<
+      CombinationAlgorithm::NUM_TRIANGLE_ITERATIONS << " times in " <<
+    result << " seconds" << endl;
 
     return 0;
 }
