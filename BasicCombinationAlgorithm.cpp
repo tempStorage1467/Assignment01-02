@@ -2,11 +2,10 @@
  * File: BasicCombinationAlgorithm.cpp
  * ----------------------
  * Name: Eric Beach
- * Section: [TODO: enter section leader here]
- * Copyright 2013 <Eric Beach>
+ * Section: SCPD, Aaron Broder <abroder@stanford.edu>
+ * Copyright 2013 Eric Beach <ebeach@google.com>
  * This file implements the BasicCombinationAlgorithm() class, which
  *   provides a simple method of computing a combination value.
- * [TODO: rewrite the documentation]
  *
  * This file lightly linted using
  * http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py

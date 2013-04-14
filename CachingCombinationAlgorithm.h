@@ -2,11 +2,10 @@
  * File: CachingCombinationAlgorithm.h
  * ----------------------
  * Name: Eric Beach
- * Section: [TODO: enter section leader here]
- * Copyright 2013 <Eric Beach>
+ * Section: SCPD, Aaron Broder <abroder@stanford.edu>
+ * Copyright 2013 Eric Beach <ebeach@google.com>
  * This file defines class that uses caching to compute Pascale's Triangle
  *   and implements the CombinationAlgorithm interface.
- * [TODO: rewrite the documentation]
  *
  * This file lightly linted using
  * http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py
