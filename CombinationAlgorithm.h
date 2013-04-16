@@ -4,6 +4,7 @@
  * Name: Eric Beach
  * Section: SCPD, Aaron Broder <abroder@stanford.edu>
  * Copyright 2013 Eric Beach <ebeach@google.com>
+ * Assignment 1 - Pt. 2 - Combinations
  * This file defines an abstract interface that each Pascale Triangle
  *   algorithm implements.
  *

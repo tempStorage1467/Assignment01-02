@@ -4,6 +4,7 @@
  * Name: Eric Beach
  * Section: SCPD, Aaron Broder <abroder@stanford.edu>
  * Copyright 2013 Eric Beach <ebeach@google.com>
+ * Assignment 1 - Pt. 2 - Combinations
  * This file defines a class that class that uses caching to compute
  *  recursively Pascale's Triangle.
  *
